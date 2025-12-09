@@ -1,0 +1,213 @@
+/* Reset basic padding/margin */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.handjet-chunk {
+    font-family: "Handjet", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "ELGR" 1,
+      "ELSH" 2;
+  }
+
+/* Set up the body to use the image as a background */
+body {
+    
+    /* Set minimum height to fill the entire screen */
+    min-height: 100vh;
+    
+    /* Set a futuristic/light text color for content */
+    color: #000000; 
+    font-family: "Handjet";
+}
+.bottom-space {
+    height: 50px;
+  }
+  
+
+/* Style the content container to make text readable */
+.site-content {
+    /* Add a semi-transparent dark overlay behind the text for better contrast */
+    /* background-color: rgba(0, 0, 0, 0.4);  */
+    padding: 20px;
+    margin: 50px auto;
+    width: 80%;
+    max-width: 850px;
+    border-radius: 10px;
+    text-align: left;
+    white-space: pre-wrap; 
+}
+
+.site-content p{
+    font-size: 24px;
+}
+
+.site-content h1{
+    font-size: 42px;
+}
+
+/* little blinking cursor */
+#type-p::after {
+    content: "|";
+    display: inline-block;
+    margin-left: 2px;
+    animation: blink 0.8s steps(1) infinite;
+  }
+  
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  #type-h1, #type-p {
+    overflow: hidden;
+    display: inline-block;
+    white-space: pre-wrap;
+  }
+
+.bottom-banner {
+    position: fixed;
+    bottom: 100px;       /* distance from bottom */
+    left: 12%;
+    transform: translateX(-50%);
+
+    font-size: 30px;
+    color: #000000;     /* match your site text color */
+    /* text-shadow: 0 0 10px rgba(0,0,0,0.5); */
+    letter-spacing: 1px;
+
+    /* optional fade+glow style */
+    /* background: rgba(0, 0, 0, 0.35); */
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.25); /* red tint, 25% opacity */
+    backdrop-filter: blur(4px);
+    
+}
+
+/* .img-wrapper { */
+    /* display: flex; */
+    /* justify-content: center;  centers horizontally */
+    /* margin-top: 20px; */
+/* } */
+
+/* .img-div img { */
+    /* max-width: 100%; */
+    /* height: auto; */
+/* } */
+/* Individual “print” */
+.photo-table {
+    max-width: 1000px;      /* keeps content centered in a column */
+    margin: 40px auto 80px; /* auto horizontally = centers it */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* centers items inside the row */
+    align-items: flex-start; 
+    gap: 40px;
+    
+}
+.photo-card {
+    background: #fff;
+    padding: 12px 12px 8px; /* default */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    transform-origin: center center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Size variants */
+.photo-card.small {
+    padding: 12px 12px 10px;   /* thinner frame */
+}
+
+.photo-card.large {
+    padding: 16px;  /* chunkier frame */
+}
+
+.photo-card.medium {
+    padding: 14px;  /* chunkier frame */
+}
+
+/* Images */
+.photo-card img {
+    display: block;
+    width: 100%;
+    max-height: 300px;
+    height: auto;
+    border-radius: 2px;
+}
+
+
+/* Tiny caption under each photo */
+.photo-card .caption {
+    margin-top: 8px;
+    font-size: 20px;
+    letter-spacing: 0.03em;
+}
+
+/* Slight random-ish rotations using nth-child */
+.photo-card:nth-child(1) { transform: rotate(-4deg); }
+.photo-card:nth-child(2) { transform: rotate(3deg); }
+.photo-card:nth-child(3) { transform: rotate(-2deg); }
+.photo-card:nth-child(4) { transform: rotate(5deg); }
+.photo-card:nth-child(5) { transform: rotate(-5deg); }
+.photo-card:nth-child(6) { transform: rotate(2deg); }
+
+/* Lift on hover like you're picking it up */
+.photo-card:hover {
+    transform: translateY(-6px) scale(1.02) rotate(0deg);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+}
+
+/* LIGHTBOX OVERLAY */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);  /* darkened background */
+    backdrop-filter: blur(10px);     /* blur behind overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;            /* no clicks until active */
+    transition: opacity 0.3s ease;
+    z-index: 9999;
+}
+
+.lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Large zoomed image */
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.4);
+    animation: zoomIn 0.25s ease;
+}
+
+/* zoom animation */
+@keyframes zoomIn {
+    from { transform: scale(0.6); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+
+/* Make photo-cards clickable */
+.photo-card img {
+    cursor: zoom-in;
+}
+
+
+h1 {
+    margin-bottom: 10px;
+}

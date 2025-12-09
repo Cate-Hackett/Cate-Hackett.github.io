@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Futuristic Subway Site</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&family=Jacquard+12+Charted&family=Jacquard+24&family=Jacquard+24+Charted&family=New+Rocker&family=Pirata+One&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&display=swap");
+    </style>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="site-content" id="typewriter">
+      <h1 id="type-h1">Hi There.</h1>
+      <p id="type-p">
+        I am a street photographer. Welcome to my portfolio. Here is my study on the New York City subway, with a focus on advertisements.
+      </p>
+    </div>
+
+    <!-- <div class = "img-wrapper">
+        <div class = "img-div">
+            <img src="images/AiSubwayCar1.png" alt="AiSubwayCar1" width="400px">
+        </div>
+    </div> -->
+
+    <div class="photo-table">
+      <div class="photo-card large" style="max-width: 260px">
+        <img src="images/AiSubwayCar1.png" alt="Subway Photo 1" />
+        <p class="caption">Hudson Yards, 2:14 AM</p>
+      </div>
+
+      <div class="photo-card small" style="max-width: 200px">
+        <img src="images/perspective6.png" alt="Subway Photo 2" />
+        <p class="caption">Canal 6:46 PM</p>
+      </div>
+
+      <div class="photo-card medium" style="max-width: 230px">
+        <img src="images/perspective2.png" alt="Subway Photo 3" />
+        <p class="caption">42st 8:10 AM</p>
+      </div>
+
+      <div class="photo-card large" style="max-width: 260px">
+        <img src="images/perspective3.png" alt="Subway Photo 1" />
+        <p class="caption">Delancey Essex 3:22 PM</p>
+      </div>
+
+      <div class="photo-card small" style="max-width: 200px">
+        <img src="images/perspective5.png" alt="Subway Photo 2" />
+        <p class="caption">Broadway 1 PM</p>
+      </div>
+    </div>
+
+    <div class="bottom-banner">November 2026.</div>
+
+    <div class="bottom-space"></div>
+
+
+    <div class="lightbox" id="lightbox">
+      <img src="" alt="" id="lightbox-img" />
+    </div>
+
+    <script>
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+
+      document.querySelectorAll(".photo-card img").forEach((img) => {
+        img.addEventListener("click", () => {
+          lightboxImg.src = img.src;
+          lightbox.classList.add("active");
+        });
+      });
+
+      // Click anywhere to close
+      lightbox.addEventListener("click", () => {
+        lightbox.classList.remove("active");
+        lightboxImg.src = "";
+      });
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
